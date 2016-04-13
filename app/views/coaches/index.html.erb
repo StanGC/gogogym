@@ -1,0 +1,9 @@
+ <h3><center>教練資訊</center></h3>
+ <br>
+ <div class="row">
+  <% @coaches.each do |coach| %>
+    <div class="col-xs-6 col-md-3">
+      <%= link_to coach.name, @gymnasium_coach_path %>
+    </div>
+  <% end %>
+</div>
