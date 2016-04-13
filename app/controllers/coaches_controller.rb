@@ -11,6 +11,7 @@ class CoachesController < ApplicationController
 
   def new
     @coach = Coach.new
+    @photo = @coach.build_photo
   end
 
   def create
@@ -25,6 +26,12 @@ class CoachesController < ApplicationController
 
   def edit
     @coach = Coach.find(params[:id])
+
+    if @coach.photo.present?
+      @coach = @coaches.photo
+    else
+      @coach = @coaches.build_photo
+    end
   end
 
   def update
@@ -50,6 +57,6 @@ class CoachesController < ApplicationController
   end
 
   def coach_params
-    params.require(:coach).permit(:name, :major, :introduction, :gym_id)
+    params.require(:coach).permit(:name, :major, :introduction, :gym_id, photo_attributes: [:image, :id])
   end
 end
