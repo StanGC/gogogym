@@ -4,7 +4,7 @@ class CreateCoaches < ActiveRecord::Migration
       t.string :name
       t.string :major
       t.text :introduction
-      t.integer :gymnasium_id
+      t.integer :gym_id
 
       t.timestamps null: false
     end

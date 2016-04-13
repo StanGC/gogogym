@@ -4,10 +4,10 @@ one:
   name: MyString
   major: MyString
   introduction: MyText
-  gymnasium_id: 1
+  gym_id: 1
 
 two:
   name: MyString
   major: MyString
   introduction: MyText
-  gymnasium_id: 1
+  gym_id: 1

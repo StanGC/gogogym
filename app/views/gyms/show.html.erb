@@ -3,7 +3,7 @@
 <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        
+
                         <li>
                             <a href="<%= "#" %>"> 教練訊息 </a>
                         </li>
@@ -31,19 +31,19 @@
 
 <div class="row">
   <div class="col-md-6">
-    <% if @gymnasia.photo.present? %>
-      <%= image_tag(@gymnasia.photo.image.medium.url, class: "thumbnail") %>
+    <% if @gyms.photo.present? %>
+      <%= image_tag(@gyms.photo.image.medium.url, class: "thumbnail") %>
     <% else %>
       <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
     <% end %>
   </div>
     <div class="col-md-6">
-      <h3> <%=@gymnasia.name%> </h3>
-       <p>地址: <%= @gymnasia.address %></p>
-       <p>電話: <%= @gymnasia.phone %></p>
-       <p>資訊: <%= @gymnasia.introduction %></p>
+      <h3> <%=@gyms.name%> </h3>
+       <p>地址: <%= @gyms.address %></p>
+       <p>電話: <%= @gyms.phone %></p>
+       <p>資訊: <%= @gyms.introduction %></p>
 
     <br>
-       <%= link_to("上一頁", gymnasia_path, class: "btn btn-default") %>
+       <%= link_to("上一頁", gyms_path, class: "btn btn-default") %>
   </div>
 </div>

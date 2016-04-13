@@ -1,5 +1,5 @@
 class CoachesController < ApplicationController
-  before_action :find_gymnasia, except: [:index, :destroy]
+  before_action :find_gyms, except: [:index, :destroy]
 
   def index
     @coaches = Coach.all
@@ -17,7 +17,7 @@ class CoachesController < ApplicationController
     @coach = Coach.new(coach_params)
 
     if @coach.save
-      redirect_to gymnasium_coaches_path(@coach)
+      redirect_to gym_coaches_path(@coach)
     else
       render :new
     end
@@ -31,7 +31,7 @@ class CoachesController < ApplicationController
     @coach = Coach.find(params[:id])
 
     if @coach.update(coach_params)
-      redirect_to gymnasium_coaches_path
+      redirect_to gym_coaches_path
     else
       render :edit
     end
@@ -40,16 +40,16 @@ class CoachesController < ApplicationController
   def destroy
     @coach = Coach.find(params[:id])
     @coach.destroy
-    redirect_to gymnasium_coaches_path(@coach), alert: "資訊已刪除"
+    redirect_to gym_coaches_path(@coach), alert: "資訊已刪除"
   end
 
   private
 
-  def find_gymnasia
-    @gymnasia = Gymnasium.find(params[:gymnasium_id])
+  def find_gyms
+    @gyms = Gym.find(params[:gym_id])
   end
 
   def coach_params
-    params.require(:coach).permit(:name, :major, :introduction, :gymnasium_id)
+    params.require(:coach).permit(:name, :major, :introduction, :gym_id)
   end
 end

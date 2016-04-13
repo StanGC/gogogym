@@ -1,16 +1,16 @@
  <h3><center>健身房資訊</center></h3>
  <br>
  <div class="row">
-  <% @gymnasium.each do |gymnasia| %>
+  <% @gym.each do |gyms| %>
     <div class="col-xs-6 col-md-3">
-      <%= link_to gymnasium_path(gymnasia) do %>
-        <% if gymnasia.photo.present? %>
-          <%= image_tag(gymnasia.photo.image.thumb.url, class: "thumbnail") %>
+      <%= link_to gym_path(gyms) do %>
+        <% if gyms.photo.present? %>
+          <%= image_tag(gyms.photo.image.thumb.url, class: "thumbnail") %>
         <% else %>
           <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
         <% end %>
       <% end %>
-      <%= gymnasia.name %>
+      <%= gyms.name %>
     </div>
   <% end %>
 </div>

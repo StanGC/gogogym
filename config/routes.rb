@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'gymnasia#index'
+  root 'gyms#index'
 
-  resources :gymnasia do
+  resources :gyms do
     resources :coaches
   end
   # The priority is based upon order of creation: first created -> highest priority.
