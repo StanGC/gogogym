@@ -1,0 +1,11 @@
+<div class="container">
+      <div style="height:100px;">
+      <h3> <%=@gymnasia.name%> </h3>
+       <p>地址: <%= @gymnasia.address %></p>
+       <p>電話: <%= @gymnasia.phone %></p>
+       <p>資訊: <%= @gymnasia.introduction %></p>
+
+    <br>
+       <%= link_to("上一頁", gymnasia_path, class: "btn btn-default") %>
+  </div>
+</div>

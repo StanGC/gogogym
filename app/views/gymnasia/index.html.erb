@@ -1,0 +1,10 @@
+ <h3><center>健身房資訊</center></h3>
+ <br>
+ <div class="container">
+        <div class="row">
+            <% @gymnasium.each do |gymnasia| %>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <%= link_to gymnasia.name, gymnasium_path(gymnasia) %>
+            </div>
+            <% end %>
+    </div>
