@@ -9,6 +9,7 @@ class GymnasiaController < ApplicationController
 
   def new
     @gymnasia = Gymnasium.new
+    @photo = @gymnasia.build_photo
   end
 
   def create
@@ -23,6 +24,12 @@ class GymnasiaController < ApplicationController
 
   def edit
     @gymnasia = Gymnasium.find(params[:id])
+
+    if @gymnasia.photo.present?
+      @photo = @gymnasia.photo
+    else
+      @photo = @gymnasia.build_photo
+    end
   end
 
   def update
@@ -44,6 +51,6 @@ class GymnasiaController < ApplicationController
   private
 
   def gymnasia_params
-    params.require(:gymnasium).permit(:name, :phone, :address, :introduction)
+    params.require(:gymnasium).permit(:name, :phone, :address, :introduction, photo_attributes: [:image, :id])
   end
 end
