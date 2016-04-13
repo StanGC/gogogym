@@ -2,22 +2,26 @@ class CoachesController < ApplicationController
   before_action :find_gyms, except: [:index, :destroy]
 
   def index
-    @coaches = Coach.all
+    @gym = Gym.find(params[:gym_id])
+    @coaches = @gym.coaches
   end
 
   def show
-    @coach = Coach.find(params[:id])
+    @gym = Gym.find(params[:gym_id])
+    @coach = @gym.coaches
   end
 
   def new
-    @coach = Coach.new
+    @gym = Gym.find(params[:gym_id])
+    @coach = @gym.coaches.new
   end
 
   def create
-    @coach = Coach.new(coach_params)
+    @gym = Gym.find(params[:gym_id])
+    @coach = @gym.coaches.new(coach_params)
 
     if @coach.save
-      redirect_to gym_coaches_path(@coach)
+      redirect_to gym_coaches_path
     else
       render :new
     end
