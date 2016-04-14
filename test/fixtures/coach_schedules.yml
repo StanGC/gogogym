@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-04-14
+  available: 1
+  bind: 1
+  info: MyString
+  notes: MyString
+  price: 1
+  promo: 1
+  status: MyString
+  information: MyText
+  coach_id: 1
+
+two:
+  date: 2016-04-14
+  available: 1
+  bind: 1
+  info: MyString
+  notes: MyString
+  price: 1
+  promo: 1
+  status: MyString
+  information: MyText
+  coach_id: 1

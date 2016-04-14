@@ -7,10 +7,12 @@
     <h2> <%= @product.title %> </h2>
     <div style="height:100px;">
       <p>
-        <%= @product.description %>
+        商品資訊: <%= @product.description %>
       </p>
     <div> 數量 : <%= @product.quantity %> </div>
-    <div class="product-price"> $ <%= @product.price %> </div>
+    <div class="product-price"> 價格 <%= @product.price %> NTD
+    <div> 賣家: <%= @product.user.name %> </div>
+    </div>
    </div>
   </div>
 </div>
