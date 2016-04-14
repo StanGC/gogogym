@@ -12,6 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ * Booking Calendar (jQuery Plugin)
+ *= require jquery.dop.BackendBookingCalendarPRO
+ *= require jquery.dop.FrontendBookingCalendarPRO
+ *= require jquery.dop.Select
  */
 
  @import "bootstrap-sprockets";

@@ -3,8 +3,14 @@ Rails.application.routes.draw do
   root 'gyms#index'
 
   resources :gyms do
-    resources :coaches
+    resources :coaches do
+      get :reservation
+    end
   end
+
+  match "jsonload", to: "coaches#jsonload", via:[:get, :post]
+  match "jsonsave", to: "coaches#jsonsave", as: "jsonsave", via:[:get, :post]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

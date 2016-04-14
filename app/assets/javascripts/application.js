@@ -14,5 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
+//-----Booking Calendar (jQuery Plugin)-----
+//= require jquery.dop.BackendBookingCalendarPRO
+//= require jquery.dop.FrontendBookingCalendarPRO
+//= require dop-prototypes
+//= require jquery.dop.Select
 //= require bootstrap-sprockets
+

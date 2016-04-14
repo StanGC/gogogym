@@ -56,6 +56,13 @@ class CoachesController < ApplicationController
     redirect_to gym_coaches_path, alert: "資訊已刪除"
   end
 
+  def reservation
+    @coach = Coach.find(params[:coach_id])
+  end
+
+  def jsonload
+  end
+
   private
 
   def coach_params

@@ -20,10 +20,11 @@
     <p>姓名: <%= coach.name %></p>
     <p>擅長: <%= coach.major %></p>
     <p>簡介: <%= coach.introduction %></p>
+    <p><%= link_to '預約', gym_coach_reservation_path(@gyms, coach) %></p>
     </div>
   <% end %>
 </div>
-        
+
     <br>
        <%= link_to("上一頁", gyms_path, class: "btn btn-default") %>
   </div>

@@ -1,0 +1,12 @@
+
+
+<div id="frontend"></div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+<script type="text/JavaScript">
+    $(document).ready(function(){
+            $('#frontend').DOPFrontendBookingCalendarPRO({'ID': 1,'reinitialize':true,
+                                                          'loadURL': '<%= jsonload_path %>',
+                                                          'sendURL': '<%= jsonsave_path %>'});
+            });
+</script>
