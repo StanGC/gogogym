@@ -1,13 +1,12 @@
 class Account::ProductsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_user
 
   def index
-    @products = Product.all
+    @products = current_user.products.all
   end
 
   def new
-    @product = Product.new
+    @product = current_user.products.new
     @photo = @product.build_photo
   end
 
@@ -32,7 +31,7 @@ class Account::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
 
     if @product.save
       redirect_to account_products_path
@@ -48,10 +47,6 @@ class Account::ProductsController < ApplicationController
   end
 
   private
-
-  def find_user
-  	@user = User.find(params[:user_id])
-  end
 
   def product_params
     params.require(:product).permit(:title, :description, :quantity, :price, photo_attributes: [:image, :id])
