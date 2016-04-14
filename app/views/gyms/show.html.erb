@@ -12,7 +12,6 @@
        <p>電話: <%= @gyms.phone %></p>
        <p>資訊: <%= @gyms.introduction %></p>
       <hr>
-  <% if current_user %>
       <h3>本館教練</h3>
  <div class="row">
   <% @gyms.coaches.each do |coach| %>
@@ -20,13 +19,15 @@
     <p>姓名: <%= coach.name %></p>
     <p>擅長: <%= coach.major %></p>
     <p>簡介: <%= coach.introduction %></p>
-    <p><%= link_to '預約', gym_coach_reservation_path(@gyms, coach) %></p>
+    <p><%= link_to '預約', gym_coach_reservation_path(@gyms, coach), class: "btn btn-info" %></p>
     </div>
   <% end %>
-  <% end %>
 </div>
-
+  <% @gym = Gym.find_by(params[:gym_id]) %>
     <br>
+    <% if current_user.admin? %>
+       <%= link_to("新增教練", new_gym_coach_path(@gym), class: "btn btn-primary") %>
+    <% end %>
        <%= link_to("上一頁", gyms_path, class: "btn btn-default") %>
   </div>
 </div>

@@ -1,35 +1,16 @@
-class CoachesController < ApplicationController
+class Admin::CoachesController < ApplicationController
+  
+  layout "admin"
+
   before_action :authenticate_user!
+  before_action :admin_required
 
   def index
-    @gym = Gym.find(params[:gym_id])
-    @coaches = @gym.coaches
-  end
-
-  def show
-    @gym = Gym.find(params[:gym_id])
-    @coach = @gym.coaches
-  end
-
-  def new
-    @gym = Gym.find(params[:gym_id])
-    @coach = @gym.coaches.new
-    @photo = @coach.build_photo
-  end
-
-  def create
-    @gym = Gym.find(params[:gym_id])
-    @coach = @gym.coaches.new(coach_params)
-
-    if @coach.save
-      redirect_to gym_coaches_path
-    else
-      render :new
-    end
+    @coaches = Coach.all
   end
 
   def edit
-    @gym = Gym.find(params[:gym_id])
+    @gym = Gym.find_by(params[:gym_id])
     @coach = @gym.coaches.find(params[:id])
 
     if @coach.photo.present?
@@ -55,13 +36,6 @@ class CoachesController < ApplicationController
     @coach = @gym.coaches.find(params[:id])
     @coach.destroy
     redirect_to gym_coaches_path, alert: "資訊已刪除"
-  end
-
-  def reservation
-    @coach = Coach.find(params[:coach_id])
-  end
-
-  def jsonload
   end
 
   private

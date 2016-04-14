@@ -5,13 +5,16 @@
  	<% @gym = Gym.find(params[:gym_id]) %>
  	<% @coaches.each do |coach| %>
       <div class="col-xs-6 col-md-3">
+         <%= link_to gym_coach_path(@gym,coach) do %>
         <% if coach.photo.present? %>
           <%= image_tag(coach.photo.image.thumb.url, class: "thumbnail") %>
         <% else %>
           <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
         <% end %>
+        <% end %>
   
-      <%= link_to coach.name, gym_coach_path(@gym,coach) %>
+      <p><%= coach.name %></p>
+      <p><%= @gym.name %></p>
     </div>
   <% end %>
 </div>

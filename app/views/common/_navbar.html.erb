@@ -14,7 +14,13 @@
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-left">
                 <li> 
-                  <%= link_to("健身房一覽", gyms_path ) %>
+                  <%= link_to("健身房", gyms_path ) %>
+                </li>
+
+                <% @gym = Gym.find_by(params[:gym_id]) %>
+
+                <li> 
+                  <%= link_to("教練", gym_coaches_path(@gym)) %>
                 </li>
                 <li> 
                   <%= link_to("二手器材", products_path ) %>

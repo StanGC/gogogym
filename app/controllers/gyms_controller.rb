@@ -1,4 +1,5 @@
 class GymsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @gym = Gym.all

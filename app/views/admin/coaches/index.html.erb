@@ -1,0 +1,34 @@
+<h2>教練列表</h2>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>所屬健身房</th>
+      <th>名稱</th>
+      <th>專長</th>
+      <th>簡介</th>
+      <th width="100">功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gym = Gym.find_by(params[:id]) %>
+    <% @coaches.each do |coach| %>
+    <tr>
+      <td> <%= coach.id %> </td>
+      <td> <%= @gym.name %> </td>
+      <td> <%= coach.name %> </td>
+      <td> <%= coach.major %> </td>
+      <td> <%= coach.introduction %> </td>
+      <td>
+          <%= link_to("修改", edit_admin_coach_path(coach), class: "btn btn-primary" ) %>
+        <br>
+        <br/>
+          <%= link_to("刪除", gym_coach_path(@gym, coach), class: "btn btn-danger", 
+                          method: :delete, data: { confirm: "Are you sure?" } )%>
+        </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
