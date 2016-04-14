@@ -12,8 +12,8 @@
        <p>電話: <%= @gyms.phone %></p>
        <p>資訊: <%= @gyms.introduction %></p>
       <hr>
+  <% if current_user %>
       <h3>本館教練</h3>
-
  <div class="row">
   <% @gyms.coaches.each do |coach| %>
     <div class="col-xs-6 col-md-3">
@@ -22,6 +22,7 @@
     <p>簡介: <%= coach.introduction %></p>
     <p><%= link_to '預約', gym_coach_reservation_path(@gyms, coach) %></p>
     </div>
+  <% end %>
   <% end %>
 </div>
 
