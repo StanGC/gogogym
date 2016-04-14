@@ -10,7 +10,11 @@
           <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
         <% end %>
       <% end %>
-      <%= product.title %> $ <%= product.price %>
+      賣家: <%= product.user.name %>
+      <br>
+      商品: <%= product.title %>
+      <br>
+      價格: <%= product.price %> NTD
     </div>
   <% end %>
 </div>
