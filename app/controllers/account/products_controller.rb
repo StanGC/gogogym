@@ -1,21 +1,24 @@
 class Account::ProductsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :find_user
+
   def index
     @products = Product.all
   end
 
   def new
     @product = Product.new
-     @photo = @product.build_photo
+    @photo = @product.build_photo
   end
 
   def edit
     @product = Product.find(params[:id])
 
     if @product.photo.present?
-       @photo = @product.photo
-     else
-       @photo = @product.build_photo
-     end
+      @photo = @product.photo
+    else
+      @photo = @product.build_photo
+    end
   end
 
   def update
@@ -45,6 +48,10 @@ class Account::ProductsController < ApplicationController
   end
 
   private
+
+  def find_user
+  	@user = User.find(params[:user_id])
+  end
 
   def product_params
     params.require(:product).permit(:title, :description, :quantity, :price, photo_attributes: [:image, :id])
