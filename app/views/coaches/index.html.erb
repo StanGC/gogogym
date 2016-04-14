@@ -1,9 +1,17 @@
  <h3><center>教練資訊</center></h3>
  <br>
- <div class="row">
-  <% @coaches.each do |coach| %>
-    <div class="col-xs-6 col-md-3">
-      <%= link_to coach.name, @gym_coach_path %>
+   <div class="row">
+   	<div class="container">
+ 	<% @gym = Gym.find(params[:gym_id]) %>
+ 	<% @coaches.each do |coach| %>
+      <div class="col-xs-6 col-md-3">
+        <% if coach.photo.present? %>
+          <%= image_tag(coach.photo.image.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+  
+      <%= link_to coach.name, gym_coach_path(@gym,coach) %>
     </div>
   <% end %>
 </div>

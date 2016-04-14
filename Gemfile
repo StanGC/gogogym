@@ -8,6 +8,8 @@ gem 'awesome_rails_console'
 gem 'devise'
 gem 'cocoon'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "figaro"
+gem "fog"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

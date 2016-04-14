@@ -1,5 +1,4 @@
 class CoachesController < ApplicationController
-  before_action :find_gyms, except: [:index, :destroy]
 
   def index
     @gym = Gym.find(params[:gym_id])
@@ -29,36 +28,35 @@ class CoachesController < ApplicationController
   end
 
   def edit
-    @coach = Coach.find(params[:id])
+    @gym = Gym.find(params[:gym_id])
+    @coach = @gym.coaches.find(params[:id])
 
     if @coach.photo.present?
-      @coach = @coaches.photo
+      @photo = @coach.photo
     else
-      @coach = @coaches.build_photo
+      @photo = @coach.build_photo
     end
   end
 
   def update
-    @coach = Coach.find(params[:id])
+    @gym = Gym.find(params[:gym_id])
+    @coach = @gym.coaches.find(params[:id])
 
     if @coach.update(coach_params)
-      redirect_to gym_coaches_path
+      redirect_to gym_coaches_path, notice: "資訊修改成功"
     else
       render :edit
     end
   end
 
   def destroy
-    @coach = Coach.find(params[:id])
+    @gym = Gym.find(params[:gym_id])
+    @coach = @gym.coaches.find(params[:id])
     @coach.destroy
-    redirect_to gym_coaches_path(@coach), alert: "資訊已刪除"
+    redirect_to gym_coaches_path, alert: "資訊已刪除"
   end
 
   private
-
-  def find_gyms
-    @gyms = Gym.find(params[:gym_id])
-  end
 
   def coach_params
     params.require(:coach).permit(:name, :major, :introduction, :gym_id, photo_attributes: [:image, :id])
