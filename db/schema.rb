@@ -11,11 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160414064857) do
-=======
-ActiveRecord::Schema.define(version: 20160414081420) do
->>>>>>> ffed364c95d01e2694f1ab1b062ed8192fbcda73
+ActiveRecord::Schema.define(version: 20160414124807) do
+
+  create_table "coach_schedules", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "available"
+    t.integer  "bind"
+    t.string   "info"
+    t.string   "notes"
+    t.integer  "price"
+    t.integer  "promo"
+    t.string   "status"
+    t.text     "information"
+    t.integer  "coach_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "coaches", force: :cascade do |t|
     t.string   "name"
@@ -31,14 +42,6 @@ ActiveRecord::Schema.define(version: 20160414081420) do
     t.string   "phone"
     t.string   "address"
     t.string   "introduction"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "partners", force: :cascade do |t|
-    t.string   "name"
-    t.text     "introduction"
-    t.string   "haunt_time"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

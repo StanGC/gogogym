@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'gyms#index'
+  root 'home#index'
 
   resources :gyms do
     resources :coaches do
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :products
-
+  resources :home, only: [:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

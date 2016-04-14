@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//# require turbolinks
 //= require_tree .
 //-----Booking Calendar (jQuery Plugin)-----
 //= require jquery.dop.BackendBookingCalendarPRO
@@ -21,3 +21,6 @@
 //= require jquery.dop.Select
 //= require bootstrap-sprockets
 
+$(function() {
+  console.log("不要翻Soruce code啦...真的是Stan寫的");
+});

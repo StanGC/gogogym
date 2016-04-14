@@ -1,0 +1,16 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#home-img {
+  width: 100%;
+  height: auto;
+  background-image: url("http://i.imgur.com/RK3xCWR.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid red;
+}
+
+#font-white {
+  color: #F5F5F5;
+}

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "font-awesome-rails"
 gem 'sextant'
 gem "simple_form"
 gem "carrierwave"
