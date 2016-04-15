@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   match "jsonload", to: "coaches#jsonload", via:[:get, :post]
   match "jsonsave", to: "coaches#jsonsave", as: "jsonsave", via:[:get, :post]
 
+  resources :coaches
+
   namespace :account do
     resources :products
   end
@@ -41,6 +43,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, controller: "cart_items"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

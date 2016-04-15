@@ -2,8 +2,7 @@ class CoachesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @gym = Gym.find(params[:gym_id])
-    @coaches = @gym.coaches
+    @coaches = Coach.all
   end
 
   def show

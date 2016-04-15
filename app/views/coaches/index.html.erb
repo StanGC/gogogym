@@ -2,19 +2,17 @@
  <br>
    <div class="row">
    	<div class="container">
- 	<% @gym = Gym.find(params[:gym_id]) %>
- 	<% @coaches.each do |coach| %>
-      <div class="col-xs-6 col-md-3">
-         <%= link_to gym_coach_path(@gym,coach) do %>
+  <% @coaches.each do |coach| %>
+    <div class="col-xs-6 col-md-3">
+      <%= link_to coach_path(coach) do %>
         <% if coach.photo.present? %>
-          <%= image_tag(coach.photo.image.thumb.url, class: "thumbnail") %>
+          <%= image_tag(gyms.photo.image.thumb.url, class: "thumbnail") %>
         <% else %>
           <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
         <% end %>
-        <% end %>
-  
-      <p><%= coach.name %></p>
-      <p><%= @gym.name %></p>
+      <% end %>
+
+      <%= coach.name %> / <%= coach.gym.name %>
     </div>
   <% end %>
 </div>

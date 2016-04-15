@@ -13,10 +13,13 @@
 
            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-left">
-                <li> 
+                <li>
                   <%= link_to("健身房", gyms_path ) %>
                 </li>
-                <li> 
+                <li>
+                  <%= link_to("現有教練", coaches_path) %>
+                </li>
+                <li>
                   <%= link_to("二手器材", products_path ) %>
                 </li>
               </ul>
@@ -30,7 +33,7 @@
                   購物車 <i class="fa fa-shopping-cart"> </i> ( <%= render_cart_items_count(current_cart) %> )
                 <% end %>
               </li>
-              
+
               <% if !current_user %>
                 <li> <%= link_to("登入", new_user_session_path) %> </li>
               <% else %>
@@ -40,7 +43,7 @@
                     <b class="caret"></b>
                   </a>
                    <ul class="dropdown-menu">
-                    
+
                     <% if current_user.admin? %>
                       <li>
                         <%= link_to("Admin 選單", admin_products_path ) %>
