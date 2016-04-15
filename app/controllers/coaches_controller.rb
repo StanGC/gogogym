@@ -6,8 +6,7 @@ class CoachesController < ApplicationController
   end
 
   def show
-    @gym = Gym.find(params[:gym_id])
-    @coach = @gym.coaches
+    @coach = Coach.find(params[:id])
   end
 
   def new

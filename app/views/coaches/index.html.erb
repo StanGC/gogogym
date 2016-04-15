@@ -6,7 +6,7 @@
     <div class="col-xs-6 col-md-3">
       <%= link_to coach_path(coach) do %>
         <% if coach.photo.present? %>
-          <%= image_tag(gyms.photo.image.thumb.url, class: "thumbnail") %>
+          <%= image_tag(coach.photo.image.thumb.url, class: "thumbnail") %>
         <% else %>
           <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
         <% end %>
