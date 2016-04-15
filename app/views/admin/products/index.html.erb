@@ -1,10 +1,11 @@
 <h2> 二手器材列表 </h2>
 <div class="pull-right" style="padding-bottom: 20px;">
-  <%= link_to("新增商品", new_admin_product_path, class: "btn btn-primary btn-sm") %>
+  <%= link_to("新增商品", new_account_product_path, class: "btn btn-primary btn-sm") %>
 </div>
 <table class="table table-bordered">
   <thead>
     <tr>
+      <th>#</th>
       <th width="220">商品圖片</th>
       <th>商品名稱</th>
       <th>商品資訊</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td> <%= product.id %> </td>
         <td>
           <%= link_to product_path(product) do %>
             <% if product.photo.present? %>

@@ -11,11 +11,30 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  helper_method :current_cart
+
+  def current_cart
+    @current_cart ||= find_cart
+  end
+
+  private
+
+  def find_cart
+    cart = Cart.find_by(id: session[:cart_id])
+
+    unless cart.present?
+      cart = Cart.create
+    end
+
+    session[:cart_id] = cart.id
+    cart
+  end
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
-    
+
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
   end
 end

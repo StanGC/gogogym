@@ -1,0 +1,35 @@
+<h2>健身房列表</h2>
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("新增健身房", new_gym_path, class: "btn btn-primary btn-sm") %>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名稱</th>
+      <th>電話</th>
+      <th>地址</th>
+      <th>資訊</th>
+      <th width="100">功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gym.each do |gyms| %>
+
+    <tr>
+      <td> <%= gyms.id %> </td>
+      <td> <%= gyms.name %> </td>
+      <td> <%= gyms.address %> </td>
+      <td> <%= gyms.phone %> </td>
+      <td> <%= gyms.introduction %> </td>
+      <td>
+          <%= link_to("修改", edit_gym_path(gyms), class: "btn btn-primary" ) %>
+        <br>
+        <br>
+          <%= link_to("刪除", gym_path(gyms), class: "btn btn-danger", 
+                          method: :delete, data: { confirm: "Are you sure?" } )%>
+        </td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
